@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="numbersApp">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Numbers!</title>
+
+<script src="js/jquery.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/angular.min.js"></script>
+<script src="js/controllers.js"></script>
+
+<link rel="stylesheet" href="css/numbers.css">
+</head>
+<body ng-controller="ctrl">
+
+<div class="sidebar">
+    <h1>Numbers!</h1>
+    <form>
+        <div class="form-group">
+            <label for="language">Language</label>
+            <select class="form-control" ng-model="language" ng-options="code as name for (code, name) in LANGS"></select>
+        </div>
+        <div class="form-group">
+            <label for="min">Minimum</label>
+            <input class="form-control" type="number" ng-model="min">
+        </div>
+        <div class="form-group">
+            <label for="max">Maximum</label>
+            <input class="form-control" type="number" ng-model="max">
+        </div>
+    </form>
+</div>
+
+<div class="content-wrapper">
+    <div class="content" ng-controller="gameCtrl">
+        <p>Score: <span class="score">{{correct}}</span> / <span class="score">{{total}}</span></p>
+        <form ng-submit="next()" class="form-inline">
+            <div class="form-group">
+                <label for="answer">Answer:</label>
+                <input type="text" id="answer" ng-model="answer" class="form-control" autocomplete="off" autofocus>
+            </div>
+        </form>
+        <div class="feedback">
+            <p ng-show="correct_answer">Wrong. The correct answer was {{correct_answer}}.</p>
+            <p ng-hide="total == 0 || correct_answer">Correct!</p>
+        </div>
+        <h3 ng-hide="started()">Press Enter to begin</h3>
+    </div>
+</div>
+
+</body>
+</html>

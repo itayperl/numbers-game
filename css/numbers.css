@@ -1,0 +1,22 @@
+.sidebar {
+    width: 20%;
+    height: 100%;
+    float: left;
+    padding: 1em;
+}
+.content-wrapper {
+    width: 80%;
+    height: 100%;
+    float: left;
+    padding: 1em;
+}
+.content {
+    width: 60%;
+    padding-top: 10%;
+    margin: 0 auto;
+}
+.feedback {
+   padding-top: 1em;
+   font-size: large;
+}
+
